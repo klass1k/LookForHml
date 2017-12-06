@@ -13,14 +13,14 @@ namespace LookForHml
         {
             LookFor lf = new LookFor();
             //DirSearch(@"D:\English\pre\New English File Class CD Pre-Intermediate (mp3 split up version)(2005)");
-            string filePath = @"D:\English\pre";           
-            foreach (var item in lf.GetHtml(filePath))
+            string directoryPath = @"D:\English\pre";
+            foreach (var item in lf.GetHtml(directoryPath).Distinct())
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.FullName);
             }
             Console.ReadKey();
-        }
-       
+        }      
+
     }
 }
 
