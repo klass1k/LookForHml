@@ -48,19 +48,16 @@ namespace LookForHml
             }
 
             if (recursive)
-            {
-                DirectoryInfo[] subdir = dir.GetDirectories();
-                int i;
-                int l = subdir.Length;
-                for (i = 1; i < l; i++)
+            {                            
+                for (int i = 1; i < dir.GetDirectories().Length; i++)
                 {
                     try
                     {
-                        this.FindInDir(subdir[i], pattern, recursive);
+                        this.FindInDir(dir.GetDirectories()[i], pattern, recursive);
                     }
                     catch (UnauthorizedAccessException)
                     {
-                        FullnameFail.Add(subdir[i].Name);
+                        FullnameFail.Add(dir.GetDirectories()[i].Name);
                     }
                 }
             }
