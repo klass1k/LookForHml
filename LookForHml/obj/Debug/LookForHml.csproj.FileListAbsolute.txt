@@ -1,0 +1,6 @@
+D:\COURSE ASP.NET\LookForHml\LookForHml\bin\Debug\LookForHml.exe.config
+D:\COURSE ASP.NET\LookForHml\LookForHml\bin\Debug\LookForHml.exe
+D:\COURSE ASP.NET\LookForHml\LookForHml\bin\Debug\LookForHml.pdb
+D:\COURSE ASP.NET\LookForHml\LookForHml\obj\Debug\LookForHml.csprojResolveAssemblyReference.cache
+D:\COURSE ASP.NET\LookForHml\LookForHml\obj\Debug\LookForHml.exe
+D:\COURSE ASP.NET\LookForHml\LookForHml\obj\Debug\LookForHml.pdb
