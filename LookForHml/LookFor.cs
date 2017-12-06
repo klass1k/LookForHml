@@ -24,7 +24,7 @@ namespace LookForHml
                     yield return f.Name;
                 }
                 
-                foreach (var get in GetHtml(Path.GetDirectoryName(directoryPath)))
+                foreach (var get in GetHtml(Path.GetDirectoryName(directoryPath)))// переход на уровень ниже
                 {
                     yield return get;
                 }
