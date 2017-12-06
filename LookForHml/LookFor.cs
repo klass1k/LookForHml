@@ -9,27 +9,26 @@ namespace LookForHml
 {
     public class LookFor
     { 
-        public IEnumerable<string> GetHtml(string filePath)
+        public IEnumerable<string> GetHtml(string directoryPath)
         {
-            if(filePath==null)
+            if(directoryPath == null)
             {
                 yield break;
             }
             else
             {
-                yield return filePath;
-                DirectoryInfo dir = new DirectoryInfo(filePath);
-                FileInfo[] files = dir.GetFiles("*.html");
-                foreach (var f in files)
+                yield return directoryPath;
+                DirectoryInfo dir = new DirectoryInfo(directoryPath);
+                foreach (var f in dir.EnumerateFiles("*.html"))
                 {
                     yield return f.Name;
                 }
                 
-                foreach (var get in GetHtml(Path.GetDirectoryName(filePath)))
+                foreach (var get in GetHtml(Path.GetDirectoryName(directoryPath)))
                 {
                     yield return get;
                 }
-            }               
+            }                           
         }       
     }
 }
