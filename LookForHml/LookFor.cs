@@ -8,38 +8,29 @@ using System.Threading.Tasks;
 namespace LookForHml
 {
     public class LookFor
-    {
-        private List<string> allhtml = new List<string>();
-        
-        private string directoryName;
-        public IEnumerable<string> GetHtml(string path)
+    { 
+        public IEnumerable<string> GetHtml(string filePath)
         {
-            DirSearch(path);
-            for (int i = 0; i < allhtml.Count; i++)
+            if(filePath==null)
             {
-                yield return allhtml[i];
+                yield break;
             }
-        }
-        private void DirSearch(string filePath)
-        {
-            directoryName = Path.GetDirectoryName(filePath);
-            if (filePath != null)
+            else
             {
+                yield return filePath;
                 DirectoryInfo dir = new DirectoryInfo(filePath);
                 FileInfo[] files = dir.GetFiles("*.html");
                 foreach (var f in files)
                 {
-                    allhtml.Add(f.FullName);
+                    yield return f.Name;
                 }
-            }
-            allhtml.Add(filePath);
-            filePath = directoryName;            
-           
-            if (filePath != null)
-            {
-                this.DirSearch(filePath);
-            }
-        }
+                
+                foreach (var get in GetHtml(Path.GetDirectoryName(filePath)))
+                {
+                    yield return get;
+                }
+            }               
+        }       
     }
 }
         
